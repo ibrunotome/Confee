@@ -1,8 +1,8 @@
 <?php
 
-namespace Confee\Http\Controllers\Auth;
+namespace Confee\Units\Authentication\Http\Controllers;
 
-use Confee\Http\Controllers\Controller;
+use Confee\Support\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller
@@ -22,8 +22,6 @@ class ForgotPasswordController extends Controller
 
     /**
      * Create a new controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {

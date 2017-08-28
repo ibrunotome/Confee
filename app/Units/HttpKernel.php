@@ -1,10 +1,10 @@
 <?php
 
-namespace Confee\Http;
+namespace Confee\Units;
 
-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Foundation\Http\Kernel;
 
-class Kernel extends HttpKernel
+class HttpKernel extends Kernel
 {
     /**
      * The application's global HTTP middleware stack.
@@ -16,7 +16,7 @@ class Kernel extends HttpKernel
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \Confee\Http\Middleware\TrimStrings::class,
+        \Confee\Units\Core\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -27,12 +27,12 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \Confee\Http\Middleware\EncryptCookies::class,
+            \Confee\Units\Core\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Confee\Http\Middleware\VerifyCsrfToken::class,
+            \Confee\Units\Core\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
@@ -50,11 +50,11 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+        'auth'       => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \Confee\Http\Middleware\RedirectIfAuthenticated::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'bindings'   => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        'can'        => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest'      => \Confee\Units\Core\Http\Middleware\RedirectIfAuthenticated::class,
+        'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
     ];
 }
