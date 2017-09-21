@@ -2,8 +2,8 @@
 
 namespace Confee\Units\Authentication\Providers;
 
+use Confee\Units\Authentication\Http\Routes\Api;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -49,12 +49,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::group([
+        (new Api([
             'middleware' => 'api',
             'namespace'  => $this->namespace,
-            'prefix'     => 'api'
-        ], function () {
-            require __DIR__ . '/../Http/routes.php';
-        });
+        ]))->register();
     }
 }
