@@ -20,9 +20,6 @@
     "phpunit/phpunit": "~6.0"
   },
   "autoload": {
-    "classmap": [
-      "database"
-    ],
     "psr-4": {
       "Confee\\": "app/"
     }
@@ -32,7 +29,7 @@
       "tests/TestCase.php"
     ],
     "psr-4": {
-      "Confee\\": "tests/unit/"
+      "Confee\\": "tests/Unit/"
     }
   },
   "scripts": {
