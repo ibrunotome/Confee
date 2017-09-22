@@ -17,6 +17,7 @@ class Api extends RouteFile
     protected function registerDefaultRoutes()
     {
         $this->userRoutes();
+        $this->loginRoutes();
     }
 
     protected function userRoutes()
